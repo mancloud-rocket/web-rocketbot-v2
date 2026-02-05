@@ -1,0 +1,292 @@
+@import "tailwindcss";
+
+@theme {
+  --color-rocket-red: #BC0017;
+  --color-neon-cyan: #00D4FF;
+  --color-neon-magenta: #FF00F5;
+  --color-neon-lime: #00FF88;
+
+  --font-display: var(--font-mulish);
+  --font-sans: var(--font-montserrat);
+
+  /* Semantic Colors referencing CSS vars */
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-border: var(--border);
+}
+
+:root {
+  /* Light Mode */
+  --background: #FAFAFA;
+  --foreground: #0B0E11;
+  --card: rgba(255, 255, 255, 0.7);
+  --card-foreground: #0B0E11;
+  --border: rgba(0, 0, 0, 0.08);
+
+  --rocket-red: #BC0017;
+  --neon-cyan: #00D4FF;
+  --neon-magenta: #FF00F5;
+  --neon-lime: #00FF88;
+
+  /* Glassmorphism */
+  --glass-bg: rgba(255, 255, 255, 0.6);
+  --glass-border: rgba(255, 255, 255, 0.3);
+  --glass-blur: 20px;
+}
+
+.dark {
+  /* Dark Mode */
+  --background: #0A0A0F;
+  --foreground: #FFFFFF;
+  --card: rgba(20, 20, 30, 0.8);
+  --card-foreground: #FFFFFF;
+  --border: rgba(255, 255, 255, 0.08);
+
+  /* Glassmorphism Dark */
+  --glass-bg: rgba(20, 20, 35, 0.6);
+  --glass-border: rgba(255, 255, 255, 0.1);
+}
+
+/* Force Dark Mode Utility for specific pages */
+.force-dark-page {
+  --background: #0A0A0F !important;
+  --foreground: #FFFFFF !important;
+  --border: rgba(255, 255, 255, 0.08) !important;
+  --card: rgba(20, 20, 30, 0.8) !important;
+  --card-foreground: #FFFFFF !important;
+  --glass-bg: rgba(20, 20, 35, 0.6) !important;
+  --glass-border: rgba(255, 255, 255, 0.1) !important;
+  color: #FFFFFF !important;
+  color-scheme: dark !important;
+}
+
+.force-dark-page .text-gray-500 {
+  color: #D1D5DB !important;
+  /* text-gray-300 fallback */
+}
+
+.force-dark-page .text-foreground {
+  color: #FFFFFF !important;
+}
+
+body {
+  background-color: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-sans);
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-display);
+}
+
+/* === GLASSMORPHISM UTILITIES === */
+.glass {
+  background: var(--glass-bg);
+  backdrop-filter: blur(var(--glass-blur));
+  -webkit-backdrop-filter: blur(var(--glass-blur));
+  border: 1px solid var(--glass-border);
+}
+
+.glass-card {
+  background: var(--glass-bg);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border: 1px solid var(--glass-border);
+  border-radius: 24px;
+  box-shadow:
+    0 8px 32px rgba(0, 0, 0, 0.1),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1);
+}
+
+.glass-card-premium {
+  background: linear-gradient(135deg,
+      var(--glass-bg) 0%,
+      rgba(255, 255, 255, 0.4) 50%,
+      var(--glass-bg) 100%);
+  backdrop-filter: blur(30px);
+  -webkit-backdrop-filter: blur(30px);
+  border: 1px solid var(--glass-border);
+  border-radius: 28px;
+  box-shadow:
+    0 20px 60px rgba(0, 0, 0, 0.15),
+    inset 0 1px 0 rgba(255, 255, 255, 0.2);
+}
+
+.dark .glass-card-premium {
+  background: linear-gradient(135deg,
+      rgba(20, 20, 40, 0.7) 0%,
+      rgba(30, 30, 60, 0.5) 50%,
+      rgba(20, 20, 40, 0.7) 100%);
+  box-shadow:
+    0 20px 60px rgba(0, 0, 0, 0.4),
+    inset 0 1px 0 rgba(255, 255, 255, 0.05);
+}
+
+/* === NEON GLOW EFFECTS === */
+.neon-glow-red {
+  box-shadow:
+    0 0 20px rgba(188, 0, 23, 0.3),
+    0 0 40px rgba(188, 0, 23, 0.2),
+    0 0 60px rgba(188, 0, 23, 0.1);
+}
+
+.neon-glow-cyan {
+  box-shadow:
+    0 0 20px rgba(0, 212, 255, 0.3),
+    0 0 40px rgba(0, 212, 255, 0.2),
+    0 0 60px rgba(0, 212, 255, 0.1);
+}
+
+.neon-border-red {
+  border: 1px solid rgba(188, 0, 23, 0.5);
+  box-shadow:
+    inset 0 0 20px rgba(188, 0, 23, 0.1),
+    0 0 20px rgba(188, 0, 23, 0.2);
+}
+
+.neon-border-cyan {
+  border: 1px solid rgba(0, 212, 255, 0.5);
+  box-shadow:
+    inset 0 0 20px rgba(0, 212, 255, 0.1),
+    0 0 20px rgba(0, 212, 255, 0.2);
+}
+
+.neon-border-magenta {
+  border: 1px solid rgba(255, 0, 245, 0.5);
+  box-shadow:
+    inset 0 0 20px rgba(255, 0, 245, 0.1),
+    0 0 20px rgba(255, 0, 245, 0.2);
+}
+
+/* === DATA TUBE ANIMATIONS === */
+.data-tube {
+  position: relative;
+  background: linear-gradient(90deg,
+      transparent 0%,
+      rgba(0, 212, 255, 0.3) 50%,
+      transparent 100%);
+  overflow: hidden;
+}
+
+.data-tube::before {
+  content: '';
+  position: absolute;
+  width: 20px;
+  height: 100%;
+  background: linear-gradient(90deg,
+      transparent,
+      rgba(0, 212, 255, 0.8),
+      transparent);
+  animation: data-flow 2s linear infinite;
+}
+
+.data-tube-vertical {
+  position: relative;
+  background: linear-gradient(180deg,
+      transparent 0%,
+      rgba(0, 212, 255, 0.3) 50%,
+      transparent 100%);
+  overflow: hidden;
+}
+
+.data-tube-vertical::before {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 20px;
+  background: linear-gradient(180deg,
+      transparent,
+      rgba(0, 212, 255, 0.8),
+      transparent);
+  animation: data-flow-vertical 2s linear infinite;
+}
+
+@keyframes data-flow {
+  0% {
+    transform: translateX(-100%);
+  }
+
+  100% {
+    transform: translateX(500%);
+  }
+}
+
+@keyframes data-flow-vertical {
+  0% {
+    transform: translateY(-100%);
+  }
+
+  100% {
+    transform: translateY(500%);
+  }
+}
+
+/* === PULSE ANIMATIONS === */
+@keyframes pulse-neon {
+
+  0%,
+  100% {
+    opacity: 0.6;
+    box-shadow: 0 0 20px rgba(0, 212, 255, 0.3);
+  }
+
+  50% {
+    opacity: 1;
+    box-shadow: 0 0 40px rgba(0, 212, 255, 0.6);
+  }
+}
+
+.pulse-neon {
+  animation: pulse-neon 2s ease-in-out infinite;
+}
+
+/* === GPU ACCELERATION === */
+.gpu-accelerated {
+  transform: translateZ(0);
+  will-change: transform;
+  backface-visibility: hidden;
+}
+
+/* === SMOOTH SCROLL === */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Disable animations for users who prefer reduced motion */
+@media (prefers-reduced-motion: reduce) {
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* === CUSTOM SCROLLBAR === */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--background);
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(188, 0, 23, 0.3);
+  border-radius: 5px;
+  border: 2px solid var(--background);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--rocket-red);
+}

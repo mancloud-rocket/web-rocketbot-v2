@@ -1,0 +1,52 @@
+---
+alwaysApply: true
+---
+Rocketbot: The Cinematic Tech Manifest (Master Guidelines)
+1. Brand Essence: "The Silicon Valley Vision"
+Vibe: Premium, Executive-grade, and Futuristic.
+The Goal: To make Rocketbot look like a world-class technology leader. The site shouldn't feel like a corporate portal; it should feel like an immersive, cinematic experience.
+Atmosphere: "Deep Space Journey." High contrast, infinite depth, and glowing technical artifacts.
+2. Visual Identity & Color System
+Strict adherence to the Rocketbot Palette is non-negotiable. Use CSS variables defined in 
+globals.css
+.
+
+Foundation: Dark-mode is the default. Background: #0A0A0F (--background).
+Primary Action: Rocket Red (#BC0017). Used for branding, CTO calls, and critical progress indicators.
+Technical Accents (The Neons):
+Cyan (#00D4FF): Strategy, Expansion, & Global reach.
+Magenta (#FF00F5): Innovation, Creative Suite, & Dev environments.
+Lime (#00FF88): Growth, AI, & Future capabilities.
+Glassmorphism: Use semi-transparent backgrounds (5-8% opacity) with high-intensity blur (backdrop-blur-3xl) to create the "Floating UI" feel.
+3. Typography: "High-Impact Modernism"
+Headlines: Bold, black weight (font-black), tight tracking (tracking-tighter), and minimal line height (leading-none). Headlines should be "Oversized" to command attention.
+Metadata: Small, monospaced fonts for technical details.
+Contrast: Stark difference between massive headers and lightweight, elegant body text.
+4. The Animation Language: "Cinematic Motion"
+This is the "Secret Sauce" of the Rocketbot UI.
+
+Scroll-Driven Narrative (Scrollytelling): Content is revealed through scrolling. Use "Scenes" that take up the full viewport.
+Parallax & Depth: Utilize the Z-axis. Backgrounds (
+ConnectedNetwork
+) move slower than foregrounds. Elements should scale or rotate in 3D space as you scroll.
+Entrance Physics:
+Avoid generic "Ease-In-Out." Use Spring Physics for a snappier, more organic feel (Stiffness ~100, Damping ~30).
+Use "Cascading" reveals (stagger children animations) so the UI "builds itself" as the user arrives.
+Dynamic Backgrounds: The 
+ConnectedNetwork
+ particle system must feel alive, reacting to mouse movement or scroll velocity, creating a sense of "Neural Activity."
+5. Core Building Blocks (The Atoms)
+GlassCard: The standard container. It must feel like a floating piece of glass.
+ConnectedNetwork
+: The fabric of the space-theme. Use it as a persistent layer to connect different sections of the site.
+Hero Sections: Always centered, high-impact typography with a subtle glow (text-shadow) and a primary call-to-action that pulses.
+6. Implementation Standards (The Code)
+Next.js First: Modular, component-based architecture using the App Router.
+Framer Motion Mastery: Use useScroll, useTransform, and useInView.
+Rule: Never call Motion hooks inside loops. Extract to child components.
+Hydration Control: Always wrap client-side specific animations in a mounted check to prevent SSR/Hydration mismatches.
+Performance: Use pointer-events: none on large decorative overlays to ensure the scroll remains smooth and natural.
+7. Tone & Copy (Narrative Style)
+Language: Spanish (LATAM/Neutral).
+Voice: Empowering, Visionary, and Technical. Use words like "Democratización," "Evolución," "Singularidad," and "Escalabilidad."
+Structure: Start with a big problem or vision (The Intro), show the journey/tools (The Body), and end with the future impact (The AI Singularity).
